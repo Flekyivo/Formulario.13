@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulário Firebase</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="box">
+    <form id="dataForm">
+      <fieldset>
+        <legend><b>Formulário</b></legend>
+        <br>
+
+       
+        <div class="inputRow">
+          <div class="inputBox">
+            <label for="foto">Foto:</label>
+             <!-- Adicionar um elemento para pré-visualização -->
+
+          <div id="previewContainer">
+            
+          <img id="preview" src="" alt="Pré-visualização da Foto" style="display: none; max-width: 120px; margin-top: 10px;" />
+           
+          <input type="file" id="foto" name="foto" accept="images/*" required>
+          </div>
+      </div>
+    </div>
+        <div class="inputRow">
+          <div class="inputBox">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="inputBox">
+            <label for="matricula">Matrícula:</label>
+            <input type="number" id="matricula" name="matricula" required>
+          </div>
+        </div>
+        <div class="inputBox">
+          <label for="email"class="labelInput">Email:</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="inputBox">
+          <label for="age"class="labelInput">Idade:</label>
+          <input type="number" id="age" name="age" required>
+        </div>
+        <div class="inputBox">
+          <label for="categoria"class="labelInput">Categoria:</label>
+          <input type="text" id="categoria" name="categoria" required>
+        </div>
+        <div class="inputBox">
+          <label for="material"class="labelInput">Material:</label>
+          <input type="text" id="material" name="material" required>
+        </div>
+  
+        <div class="inputBox">
+          <button type="submit" value="Enviar" id="submitBtn">Gravar</button>
+        </div>
+        <div class="inputBox">
+          <button type="button" onclick="window.location.href='Form.html'">Ver Dados</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+   
+  <script>
+    // Adicionar funcionalidade de pré-visualização da foto
+    const fotoInput = document.getElementById('foto');
+    const preview = document.getElementById('preview');
+
+    fotoInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          preview.src = e.target.result;
+          preview.style.display = 'block'; // Mostrar a imagem
+        };
+        reader.readAsDataURL(file); // Ler o arquivo como URL
+      } else {
+        preview.src = '';
+        preview.style.display = 'none'; // Ocultar a imagem se nenhum arquivo for selecionado
+      }
+    });
+  </script>
+  <script type="module" src="app.js"></script>
+
+</body>
+</html>

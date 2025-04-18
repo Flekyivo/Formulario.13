@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visualizar Dados Firebase</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Listagem Completa</h1>
+  <button onclick="window.location.href='indexs.html'">Ir para Formulário Registos</button>
+
+  <!-- Campo de busca -->
+  <div>
+    <label for="searchInput">Procurar por Nome:</label>
+    <input type="text" id="searchInput" placeholder="Digite o nome">
+    <button onclick="searchByName()">Buscar</button>
+  </div>
+
+  <table id="dataTable">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Idade</th>
+        <th>Categoria</th>
+        <th>Material</th>
+        <th>Matrícula</th>
+        <th>Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Os dados serão carregados aqui dinamicamente -->
+    </tbody>
+  </table>
+  <button onclick="window.location.href='Paginaprincipal.html'">Registo Independente</button>
+  <script type="module" src="viewData.js"></script>
+  <link rel="stylesheet" href="styles_form.css">
+
+  <script>
+    function searchByName() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const table = document.getElementById('dataTable');
+      const rows = table.getElementsByTagName('tr');
+
+      for (let i = 1; i < rows.length; i++) { // Ignora o cabeçalho
+        const nameCell = rows[i].getElementsByTagName('td')[0]; // Primeira coluna (Nome)
+        if (nameCell) {
+          const name = nameCell.textContent || nameCell.innerText;
+          rows[i].style.display = name.toLowerCase().includes(input) ? '' : 'none';
+        }
+      }
+    }
+  </script>
+</body>
+</html>

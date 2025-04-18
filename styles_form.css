@@ -1,0 +1,49 @@
+body {
+    font-family:Verdana, Geneva, Tahoma, sans-serif
+    background-color: #e2cece;
+    margin: 0;
+    padding: 20px;
+    background: #3c5042;
+
+}
+h1 {
+    color: #e6dede;
+    text-align: center;
+    margin-bottom: 20px;
+
+}
+
+
+button {
+    background-color: #eff8f0; /* Green */
+    border: none;
+    color: rgb(24, 24, 24);
+    font-style: normal;
+    font-weight: 600;
+    padding: 8px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 4px 2px;
+    cursor: pointer;  
+    border-radius: 7px;  
+
+}
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #e2dada;
+    box-sizing: border-box;
+}
+#recordContainer span {
+    font-size: 8px; /* Ajuste o tamanho da fonte para um valor menor */
+    color: #e6dede; /* Cor do texto para combinar com o tema */
+}
+
+#recordContainer p {
+    margin: 5px 0; /* Reduz o espaçamento entre os parágrafos */
+}
+

@@ -1,0 +1,37 @@
+
+body {
+  background-color: rgb(114, 122, 113);
+  color: #ecdfdf;
+  font-family: 'verdana', Times, serif;
+  font-size: 19px;
+  margin: 100;
+  padding: 100;
+  
+}
+.inputRow {
+  display: flex;
+  gap: 20px; /* Espaçamento entre os campos */
+  margin-bottom: 20px; /* Espaçamento abaixo da linha */
+  
+}
+
+.inputBox {
+  flex: 1; /* Permite que os campos tenham tamanhos proporcionais */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px; /* Espaçamento entre o rótulo e o campo */
+
+}
+
+input {
+  width: 100%; /* Faz o campo ocupar toda a largura disponível */
+  padding: 6px;
+  box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+  border: 2px solid #ccc; /* Borda padrão */
+  border-radius: 4px; /* Bordas arredondadas */
+  transition: border-color 0.3s; /* Transição suave para a borda */ 
+  font-style: bold; /* Negrito */ 
+  font-size: 16px; /* Tamanho da fonte */
+}
