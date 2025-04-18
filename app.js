@@ -30,8 +30,17 @@ form.addEventListener('submit', (e) => {
   const email = document.getElementById('email').value;
   const age = document.getElementById('age').value;
   const categoria = document.getElementById('categoria').value;
-  const material = document.getElementById('material').value;
-  const foto = document.getElementById("foto").value
+  const escala = document.getElementById('escala').value;
+  const foto = document.getElementById("foto").value;
+  const telefone_particular = document.getElementById("telefone_particular").value;
+  const numero_tablet = document.getElementById("numero_tablet").value;
+  const data_nascimento = document.getElementById("data_nascimento").value;
+  const validade_carta = document.getElementById("validade_carta").value;
+  const numero_carta = document.getElementById("numero_carta").value;
+  const periodicos = document.getElementById("periodicos").value;
+  const psicologicos = document.getElementById("psicologicos").value;
+
+
   
 
   // Salvar os dados no Firebase
@@ -42,8 +51,16 @@ form.addEventListener('submit', (e) => {
     email: email,
     age: age,
     categoria: categoria,
-    material: material,
-    Foto: foto  
+    escala: escala,
+    Foto: foto,  
+    telefone_particular: telefone_particular,
+    numero_tablet: numero_tablet,
+    data_nascimento: data_nascimento,
+    validade_carta: validade_carta,
+    numero_carta: numero_carta,
+    psicologicos: psicologicos,
+    periodicos: periodicos
+
   })
     .then(() => {
       alert('Dados enviados com sucesso!');

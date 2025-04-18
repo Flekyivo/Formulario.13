@@ -23,7 +23,7 @@
             
           <img id="preview" src="" alt="Pré-visualização da Foto" style="display: none; max-width: 120px; margin-top: 10px;" />
            
-          <input type="file" id="foto" name="foto" accept="images/*" required>
+          <input type="file" id="foto" name="foto" accept="images/*">
           </div>
       </div>
     </div>
@@ -37,22 +37,67 @@
             <input type="number" id="matricula" name="matricula" required>
           </div>
         </div>
+        <div class="inputRow">
         <div class="inputBox">
           <label for="email"class="labelInput">Email:</label>
           <input type="email" id="email" name="email" required>
         </div>
         <div class="inputBox">
+          <label for="data_nascimento"class="labelInput">Data Nascimento:</label>
+          <input type="date" id="data_nascimento" name="data_nascimento">
+        </div>
+        <div class="inputBox">
           <label for="age"class="labelInput">Idade:</label>
           <input type="number" id="age" name="age" required>
         </div>
+        </div>
+        <div class="inputRow">
         <div class="inputBox">
           <label for="categoria"class="labelInput">Categoria:</label>
           <input type="text" id="categoria" name="categoria" required>
         </div>
         <div class="inputBox">
-          <label for="material"class="labelInput">Material:</label>
-          <input type="text" id="material" name="material" required>
+          <label for="escala"class="labelInput">Escala:</label>
+          <input type="text" id="escala" name="escala" required>
         </div>
+      </div>
+        <div class="inputRow">
+        <div class="inputBox">
+          <label for="telefone_particular"class="labelInput">Tel: Particular:</label>
+          <input type="number" id="telefone_particular" name="telefone_particular">
+        </div>
+        <div class="inputBox">
+          <label for="numero_tablet"class="labelInput">N:Tablet</label>
+          <input type="number" id="numero_tablet" name="numero_tablet">
+      </div>
+      <div class="inputBox">
+        <label for="center"center="labelInput">Center</label>
+        <input type="number" id="center" name="center">
+      </div>
+    </div>
+    <div class="inputRow">
+      <div class="inputBox">
+        <label for="numero_carta"class="labelInput">N: Carta</label>
+        <input type="text" id="numero_carta" name="numero_carta">
+      </div>
+      <div class="inputBox">
+        <label for="validade_carta"class="labelInput">Validade Carta</label>
+        <input type="date" id="validade_carta" name="validade_carta">
+    </div>
+  </div>
+  <div class="inputRow">
+    <div class="inputBox">
+      <label for="periodicos"class="labelInput">Ex Periódicos</label>
+      <input type="date" id="periodicos" name="periodicos">
+    </div>
+    <div class="inputBox">
+      <label for="psicologicos"class="labelInput">Ex Psicologicos</label>
+      <input type="date" id="psicologicos" name="psicologicos">
+  </div>
+</div>
+      
+
+     
   
         <div class="inputBox">
           <button type="submit" value="Enviar" id="submitBtn">Gravar</button>
