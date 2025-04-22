@@ -42,11 +42,12 @@ onValue(dbRef, (snapshot) => {
 function displayRecord(index) {
   const record = records[index];
   document.getElementById('name').textContent = record.name || '';
+  document.getElementById('matricula').textContent= record.matricula || '';
   document.getElementById('email').textContent = record.email || '';
   document.getElementById('age').textContent = record.age || '';
   document.getElementById('categoria').textContent = record.categoria || '';
-  document.getElementById('material').textContent = record.material || '';
-  document.getElementById('matricula').textContent= record.matricula || '';
+  document.getElementById('escala').textContent= record.escala || '';
+  document.getElementById('telefone_particular').textContent= record.telefone_particular || '';
   document.getElementById('preview').src = record.foto || '';
   document.getElementById('preview').style.display = record.foto ? 'block' : 'none';
 }
@@ -96,11 +97,12 @@ document.getElementById('deleteButton').addEventListener('click', () => {
       } else {
         // Limpar a exibição se não houver mais registros
         document.getElementById('name').textContent = '';
+        document.getElementById('matricula').textContent = '';
         document.getElementById('email').textContent = '';
         document.getElementById('age').textContent = '';
         document.getElementById('categoria').textContent = '';
-        document.getElementById('material').textContent = '';
-        document.getElementById('matricula').textContent = '';
+        document.getElementById('escala').textContent = '';
+        document.getElementById('telefone_particular').textContent = '';
         document.getElementById('preview').src = record.foto || '';
         document.getElementById('preview').style.display = record.foto ? 'block' : 'none';
       }

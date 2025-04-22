@@ -36,11 +36,20 @@ onValue(dbRef, (snapshot) => {
 
     // Adicionar células com os dados
     row.insertCell(0).textContent = data.name || '';
-    row.insertCell(1).textContent = data.email || '';
-    row.insertCell(2).textContent = data.age || '';
-    row.insertCell(3).textContent = data.categoria || '';
-    row.insertCell(4).textContent = data.material || '';
-    row.insertCell(5).textContent = data.matricula || '';
-    row.insertCell(6).innerHTML = data.foto ? `<img src="${data.foto}" alt="Foto" style="max-width: 100px;">` : 'Sem Foto';
+    row.insertCell(1).textContent = data.matricula || '';
+    row.insertCell(2).textContent = data.email || '';
+    row.insertCell(3).textContent = data.age || '';
+    row.insertCell(4).textContent = data.categoria || '';
+    row.insertCell(5).textContent = data.escala || '';
+    row.insertCell(6).textContent = data.telefone_particular || '';
+    row.insertCell(7).textContent = data.numero_tablet || '';
+    row.insertCell(8).textContent = data.periodicos || '';
+    row.insertCell(9).textContent = data.psicologicos || '';
+    row.insertCell(10).textContent = data.data_nascimento || '';
+    row.insertCell().textContent = data.center|| '';
+    row.insertCell().textContent = data.numero_carta || '';
+    
+  
+    row.insertCell(11).innerHTML = data.foto ? `<img src="${data.foto}" alt="Foto" style="max-width: 100px;">` : 'Sem Foto';
   });
 });

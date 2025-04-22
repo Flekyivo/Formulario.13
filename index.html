@@ -116,7 +116,7 @@
           const userCredential = await signInWithEmailAndPassword(auth, email, password);
           alert('Login com sucesso: ' + userCredential.user.email);
           // Redirecionar para a página Home
-          window.location.href = 'indexs.html';
+          window.location.href = 'Menu.html';
         } else {
           const userCredential = await createUserWithEmailAndPassword(auth, email, password);
           alert('Registado com sucesso: ' + userCredential.user.email);
