@@ -34,7 +34,7 @@
           </div>
           <div class="inputBox">
             <label for="matricula">Matrícula:</label>
-            <input type="number" id="matricula" name="matricula" required>
+            <input type="text" id="matricula" name="matricula" maxlength="7" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required>
           </div>
         </div>
         <div class="inputRow">
@@ -131,6 +131,21 @@
     });
   </script>
   <script type="module" src="app.js"></script>
+  <script>
+    const emailInput = document.getElementById('email');
+  
+    emailInput.addEventListener('input', () => {
+      if (!emailInput.value.includes('@cp.pt')) {
+        emailInput.value = emailInput.value.replace(/@.*/, '') + '@cp.pt';
+      }
+    });
+  
+    emailInput.addEventListener('focus', () => {
+      if (!emailInput.value) {
+        emailInput.value = '@cp.pt';
+      }
+    });
+  </script>
 
 </body>
 </html>
