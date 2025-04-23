@@ -59,6 +59,11 @@ a {
   margin-inline: 1.5rem;
 }
 
+.logo img {
+  width: 65px;
+  height: auto;
+  margin-right: 0.9rem;
+}
 /*=============== HEADER ===============*/
 .header {
   position: fixed;
@@ -87,6 +92,7 @@ a {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
   transition: color 0.3s;
+  
 }
 .nav__logo i {
   font-size: 1.25rem;

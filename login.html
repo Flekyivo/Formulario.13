@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Authentication</title>
+  <style>
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f2f6f2;
+    }
+    .container {
+      width: 300px;
+      padding: 20px;
+      background: #0c924d;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    input {
+      margin-bottom: 15px;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      padding: 10px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #5b6570;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #166507;
+    }
+    .toggle {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-align: center;
+      margin-top: 10px;
+      font-size: 14px;
+    
+      color: #f6f8fa;
+      cursor: pointer;
+    }
+    .toggle:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2 id="formTitle">Login GIPE</h2>
+    <form id="authForm">
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit" id="submitButton">Login</button>
+    </form>
+    <div class="toggle" id="toggleForm"> Registar Conta </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+  
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWcwqCTD6CeACJaJbIirMNvtel-xH1Ep4",
+      authDomain: "controle-de-maquinistas.firebaseapp.com",
+      databaseURL: "https://controle-de-maquinistas-default-rtdb.firebaseio.com",
+      projectId: "controle-de-maquinistas",
+      storageBucket: "controle-de-maquinistas.firebasestorage.app",
+      messagingSenderId: "1095308158920",
+      appId: "1:1095308158920:web:7432fc02d64eeb83b702fd"
+    };
+  
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+  
+    const formTitle = document.getElementById('formTitle');
+    const authForm = document.getElementById('authForm');
+    const toggleForm = document.getElementById('toggleForm');
+    const submitButton = document.getElementById('submitButton');
+  
+    let isLogin = true;
+  
+    toggleForm.addEventListener('click', () => {
+      isLogin = !isLogin;
+      formTitle.textContent = isLogin ? 'Login' : 'Register';
+      submitButton.textContent = isLogin ? 'Login' : 'Register';
+      toggleForm.textContent = isLogin
+        ? "Ainda não tenho conta? Registar"
+        : 'Já tenho conta? Login';
+    });
+  
+    authForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+  
+      try {
+        if (isLogin) {
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          alert('Login com sucesso: ' + userCredential.user.email);
+          // Redirecionar para a página Home
+          window.location.href = 'index.html';
+        } else {
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          alert('Registado com sucesso: ' + userCredential.user.email);
+        }
+      } catch (error) {
+        alert('Erro: ' + error.message);
+      }
+    });
+  </script>
+
+</body>
+</html>
+
+
