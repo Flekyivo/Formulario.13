@@ -5,11 +5,11 @@
   --header-height: 3.5rem;
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(220, 68%, 54%);
-  --first-color-lighten: hsl(220, 68%, 97%);
-  --title-color: hsl(152, 87%, 24%);
+  --first-color: hsl(210, 58%, 41%);
+  --first-color-lighten: hsl(225, 29%, 97%);
+  --title-color: hsl(152, 77%, 31%);
   --text-color: hsl(220, 12%, 45%);
-  --body-color: hsl(220, 100%, 99%);
+  --body-color: hsl(0, 0%, 95%);
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: "Poppins", sans-serif;
@@ -43,7 +43,13 @@ body {
   font-size: var(--normal-font-size);
   background-color: var(--body-color);
   color: var(--text-color);
+  background-image: url('/img/LOGOGIPE.png'); /* Substitua pelo caminho da sua imagem */
+  background-size: 40%; /* Faz a imagem cobrir toda a tela */
+  background-repeat: no-repeat; /* Evita repetição da imagem */
+  background-attachment: fixed; /* Faz a imagem permanecer fixa ao rolar a página */
+  background-position: center; /* Centraliza a imagem */
 }
+
 
 ul {
   list-style: none;
@@ -59,6 +65,12 @@ a {
   margin-inline: 1.5rem;
 }
 
+.logo img {
+  width: 65px;
+  height: auto;
+  margin-right: 0.9rem;
+
+}
 /*=============== HEADER ===============*/
 .header {
   position: fixed;
@@ -87,6 +99,7 @@ a {
   color: var(--title-color);
   font-weight: var(--font-semi-bold);
   transition: color 0.3s;
+  
 }
 .nav__logo i {
   font-size: 1.25rem;
@@ -130,7 +143,7 @@ a {
     width: 0.5rem;
   }
   .nav__menu::-webkit-scrollbar-thumb {
-    background-color: hsl(220, 12%, 70%);
+    background-color: hsl(220, 6%, 40%);
   }
 }
 .nav__link {
