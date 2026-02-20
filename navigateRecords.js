@@ -48,6 +48,7 @@ function displayRecord(index) {
     categoria: getElementById('categoria'),
     escala: getElementById('escala'),
     telefone_particular: getElementById('telefone_particular'),
+    numero_tablet: getElementById('numero_tablet'),
     numero_carta: getElementById('numero_carta'),
     preview: getElementById('preview')
   };
@@ -59,6 +60,7 @@ function displayRecord(index) {
   if (elements.categoria) elements.categoria.textContent = record.categoria || '';
   if (elements.escala) elements.escala.textContent = record.escala || '';
   if (elements.telefone_particular) elements.telefone_particular.textContent = record.telefone_particular || '';
+  if (elements.numero_tablet) elements.numero_tablet.textContent = record.numero_tablet || '';
   if (elements.numero_carta) elements.numero_carta.textContent = record.numero_carta || '';
 
   if (elements.preview) {
@@ -85,7 +87,19 @@ function carregarDados() {
       recordKeys.push(childSnapshot.key);
     });
     if (records.length > 0) {
-      currentIndex = 0;
+      // Se veio de uma seleção (duplo clique), abrir o registo específico
+      const selectedKey = localStorage.getItem('selectedRecordKey');
+      if (selectedKey) {
+        const idx = recordKeys.indexOf(selectedKey);
+        if (idx !== -1) {
+          currentIndex = idx;
+        } else {
+          currentIndex = 0;
+        }
+        localStorage.removeItem('selectedRecordKey');
+      } else {
+        currentIndex = 0;
+      }
       displayRecord(currentIndex);
     }
   });
@@ -159,7 +173,7 @@ function addEventListeners() {
             displayRecord(currentIndex);
           } else {
             // Limpar a exibição se não houver mais registros
-              const idsToClear = ['name','matricula','email','age','categoria','escala','telefone_particular','numero_carta'];
+              const idsToClear = ['name','matricula','email','age','categoria','escala','telefone_particular','numero_tablet','numero_carta'];
               idsToClear.forEach(id => {
                 const el = getElementById(id);
                 if (el) el.textContent = '';

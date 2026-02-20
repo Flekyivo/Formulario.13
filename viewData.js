@@ -40,7 +40,9 @@ function carregarDados() {
     
     snapshot.forEach((childSnapshot) => {
       const data = childSnapshot.val();
+      const key = childSnapshot.key;
       const row = dataTable.insertRow();
+      row.dataset.key = key;
       row.insertCell(0).textContent = data.name || '';
       row.insertCell(1).textContent = data.matricula || '';
       row.insertCell(2).textContent = data.email || '';
@@ -51,8 +53,19 @@ function carregarDados() {
       row.insertCell(7).textContent = data.numero_tablet || '';
       row.insertCell(8).textContent = data.periodicos || '';
       row.insertCell(9).textContent = data.psicologicos || '';
-      row.insertCell(10).innerHTML = data.foto ? `<img src="${data.foto}" alt="Foto" style="max-width: 100px;">` : 'Sem Foto';
-      row.insertCell(11).textContent = data.numero_carta || '';
+      row.insertCell(10).textContent = data.numero_carta || '';
+      row.insertCell(11).innerHTML = data.foto ? `<img src="${data.foto}" alt="Foto" style="max-width: 100px;">` : 'Sem Foto';
+    
+      // Ao fazer duplo clique na linha, abrir o registo independente
+      row.addEventListener('dblclick', () => {
+        try {
+          localStorage.setItem('selectedRecordKey', key);
+          window.location.href = 'Paginaprincipal.html';
+        } catch (err) {
+          console.error('Erro ao abrir registo independente:', err);
+          alert('Não foi possível abrir o registo.');
+        }
+      });
     
     });
   }, (error) => {
