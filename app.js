@@ -36,20 +36,49 @@ onAuthStateChanged(auth, (user) => {
   console.log('Utilizador autenticado:', user.email);
 });
 
-// Event listener para converter a foto para base64
+// Event listener para converter a foto para base64 e mostrar cropper
 document.getElementById('foto').addEventListener('change', function(event) {
   const file = event.target.files[0];
   if (file) {
     const reader = new FileReader();
     reader.onload = function(e) {
-      fotoBase64 = e.target.result; // Guardar em base64
-      const previewEl = document.getElementById('preview');
-      if (previewEl) {
-        previewEl.src = fotoBase64;
-        previewEl.style.display = 'block';
+      const imageToCrop = document.getElementById('imageToCrop');
+      imageToCrop.src = e.target.result;
+      document.getElementById('cropperContainer').style.display = 'block';
+      if (window.cropper) {
+        window.cropper.destroy();
       }
+      window.cropper = new Cropper(imageToCrop, {
+        aspectRatio: 1, // Quadrado, ajuste conforme necessário
+        viewMode: 1,
+        responsive: true,
+        restore: false,
+        checkCrossOrigin: false,
+        checkOrientation: false,
+        modal: true,
+        guides: true,
+        center: true,
+        highlight: false,
+        background: false,
+        autoCrop: true,
+        autoCropArea: 0.8,
+      });
     };
     reader.readAsDataURL(file);
+  }
+});
+
+// Event listener para cortar a imagem
+document.getElementById('cropButton').addEventListener('click', function() {
+  if (window.cropper) {
+    const canvas = window.cropper.getCroppedCanvas();
+    fotoBase64 = canvas.toDataURL('image/jpeg');
+    const previewEl = document.getElementById('preview');
+    previewEl.src = fotoBase64;
+    previewEl.style.display = 'block';
+    document.getElementById('cropperContainer').style.display = 'none';
+    window.cropper.destroy();
+    window.cropper = null;
   }
 });
 
