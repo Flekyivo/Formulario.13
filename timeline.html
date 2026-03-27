@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disponibilidades das Viaturas</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .timeline {
+      margin: 20px;
+      position: relative;
+    }
+    .timeline-header {
+      display: flex;
+      margin-bottom: 10px;
+    }
+    .day-cell {
+      flex: 1;
+      text-align: left;
+      padding-left: 2px;
+      font-size: 12px;
+      background-color: #746666;
+    }
+    .weekend-cell {
+      background-color: #ffe6e6;
+      color: #d9534f;
+    }
+    .today-cell {
+      background-color: #ffcccc;
+      font-weight: bold;
+    }
+    .vehicle-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .vehicle-label {
+      width: 150px;
+      font-weight: bold;
+    }
+    .total-days {
+      width: 50px;
+      text-align: center;
+      font-weight: bold;
+      color: #333;
+    }
+    .timeline-bar {
+      flex: 1;
+      height: 30px;
+      background-color: #dad5d5;
+      position: relative;
+      border-radius: 5px;
+    }
+    .rental-block {
+      position: absolute;
+      height: 100%;
+      background-color: #4CAF50;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .rental-block:hover {
+      background-color: #45a049;
+    }
+    #month-nav {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #month-nav button {
+      margin: 0 10px;
+      padding: 5px 10px;
+    }
+    #current-month-display {
+      font-weight: bold;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Disponibilidades das Viaturas</h1>
+
+  <div id="month-nav">
+    <button id="prev-month">Mês Anterior</button>
+    <span id="current-month-display"></span>
+    <button id="next-month">Próximo Mês</button>
+  </div>
+
+  <div class="timeline" id="timeline">
+    <!-- Viaturas serão carregadas aqui -->
+  </div>
+
+  <button onclick="window.location.href='rental.html'">Nova Reserva</button>
+  <button onclick="window.location.href='Menu.html'">Menu</button>
+
+  <script type="module" src="timeline.js"></script>
+</body>
+</html>

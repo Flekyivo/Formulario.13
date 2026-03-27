@@ -1,6 +1,6 @@
 
 body {
-  background-color: rgb(87, 124, 90);
+  background-color: rgb(92, 134, 96);
   color: #ecdfdf;
   font-family: 'verdana', Times, serif;
   font-size: 19px;
@@ -29,7 +29,7 @@ input {
   width: 100%; /* Faz o campo ocupar toda a largura disponível */
   padding: 6px;
   box-sizing: border-box; /* Inclui padding e borda no tamanho total */
-  border: 2px solid #ccc; /* Borda padrão */
+  border: 2px solid #8f8a8a; /* Borda padrão */
   border-radius: 4px; /* Bordas arredondadas */
   transition: border-color 0.3s; /* Transição suave para a borda */ 
   font-style: bold; /* Negrito */ 
