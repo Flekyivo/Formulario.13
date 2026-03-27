@@ -226,10 +226,26 @@ function renderTimeline() {
           block.style.backgroundColor = rental.color || '#4CAF50';
           block.textContent = rental.customer_name;
           const rentalDays = Math.ceil((end - start) / (1000 * 60 * 60 * 24)) + 1;
-          block.title = `${rental.customer_name} (${rental.start_date} - ${rental.end_date})` + (rental.notes ? ' - ' + rental.notes : '') + ` - ${rentalDays} dias`;
-          block.onclick = () => {
+          const info = `${rental.customer_name} (${rental.start_date} - ${rental.end_date})` + (rental.notes ? ' - ' + rental.notes : '') + ` - ${rentalDays} dias`;
+          block.title = info; // Para hover
+
+          let clickCount = 0;
+          block.addEventListener('click', () => {
+            clickCount++;
+            setTimeout(() => {
+              if (clickCount === 1) {
+                // Single click: mostrar info
+                alert(info);
+              }
+              clickCount = 0;
+            }, 300); // Delay para detectar double click
+          });
+
+          block.addEventListener('dblclick', () => {
+            clickCount = 0; // Cancel single click
             window.location.href = `rental.html?edit=${rental.id}`;
-          };
+          });
+
           bar.appendChild(block);
         }
 

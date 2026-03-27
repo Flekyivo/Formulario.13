@@ -3,20 +3,25 @@ body {
   background-color: rgb(92, 134, 96);
   color: #ecdfdf;
   font-family: 'verdana', Times, serif;
-  font-size: 19px;
-  margin: 100;
-  padding: 100;
-  
+  font-size: 16px; /* Reduzido para melhor responsividade */
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: auto; /* Permite scroll horizontal se necessário */
 }
+
 .inputRow {
   display: flex;
-  gap: 20px; /* Espaçamento entre os campos */
-  margin-bottom: 20px; /* Espaçamento abaixo da linha */
-  
+  gap: 10px; /* Reduzido para telas pequenas */
+  margin-bottom: 15px;
+  flex-wrap: wrap; /* Permite quebra de linha */
 }
 
 .inputBox {
-  flex: 1; /* Permite que os campos tenham tamanhos proporcionais */
+  flex: 1;
+  min-width: 200px; /* Largura mínima para evitar campos muito pequenos */
 }
 
 label {
@@ -39,21 +44,61 @@ input {
 /* Media queries para dispositivos móveis */
 @media (max-width: 768px) {
   body {
-    margin: 10px;
-    padding: 10px;
-    font-size: 16px;
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
   }
   .inputRow {
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
+    margin-bottom: 10px;
   }
   .inputBox {
     width: 100%;
+    min-width: unset;
   }
   table {
-    font-size: 14px;
+    font-size: 12px;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
   }
   th, td {
     padding: 5px;
+    white-space: nowrap;
+  }
+  .timeline {
+    margin: 10px 0;
+    overflow-x: auto;
+  }
+  .timeline-header, .vehicle-row {
+    min-width: 800px; /* Largura mínima para evitar compressão excessiva */
+  }
+  .vehicle-label {
+    width: 120px;
+    font-size: 12px;
+  }
+  .total-days {
+    width: 40px;
+    font-size: 12px;
+  }
+  .day-cell {
+    font-size: 10px;
+    padding-left: 1px;
+  }
+  .rental-block {
+    font-size: 10px;
+  }
+  #month-nav {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  #month-nav button {
+    margin: 0 5px;
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+  #current-month-display {
+    font-size: 14px;
   }
 }
