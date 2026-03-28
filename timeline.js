@@ -46,11 +46,11 @@ function loadVehicles() {
     if (vehicles.length === 0) {
       vehicles = [
         { id: '1', license_plate: '89-77-XA' },
-        { id: '2', license_plate: '08-AS-84' },
-        { id: '3', license_plate: '56-GH-18' },
         { id: '4', license_plate: '35-HU-20' },
+        { id: '3', license_plate: '56-GH-18' },
+        { id: '2', license_plate: '08-AS-84' },
         { id: '5', license_plate: 'RESERVA' },
-        { id: '6', license_plate: 'VIATURA' },
+       
       ];
     }
     loadRentals();
