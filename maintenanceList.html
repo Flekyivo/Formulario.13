@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manutenções Registradas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Manutenções Registradas</h1>
+
+  <div class="inputRow">
+    <div class="inputBox">
+      <label for="searchInput">Buscar por Viatura:</label>
+      <input type="text" id="searchInput" placeholder="Digite a viatura">
+    </div>
+    <div class="inputBox" style="align-self:flex-end;">
+      <button id="searchBtn" type="button">Buscar</button>
+      <button id="resetBtn" type="button">Limpar</button>
+    </div>
+  </div>
+
+  <table id="maintenanceTable">
+    <thead>
+      <tr>
+        <th>Viatura</th>
+        <th>Data</th>
+        <th>KM</th>
+        <th>Observações</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Registros serão carregados aqui -->
+    </tbody>
+  </table>
+
+  <button onclick="window.location.href='maintenance.html'">Nova Manutenção</button>
+  <button onclick="window.location.href='Menu.html'">Menu</button>
+
+  <script type="module" src="maintenanceList.js"></script>
+</body>
+</html>
