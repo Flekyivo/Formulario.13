@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulário Firebase</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css">
 </head>
 <body>
   <div class="box">
@@ -17,16 +19,14 @@
         <div class="inputRow">
           <div class="inputBox">
             <label for="foto">Foto:</label>
-             <!-- Adicionar um elemento para pré-visualização -->
-
-          <div id="previewContainer">
-            
-          <img id="preview" src="" alt="Pré-visualização da Foto" style="display: none; max-width: 120px; margin-top: 10px;" />
-           
-          <input type="file" id="foto" name="foto" accept="images/*">
+            <input type="file" id="foto" name="foto" accept="image/*">
+            <div id="cropperContainer" style="display: none; margin-top: 10px;">
+              <img id="imageToCrop" style="max-width: 100%;">
+              <button type="button" id="cropButton">Cortar Imagem</button>
+            </div>
+            <img id="preview" src="" alt="Pré-visualização da Foto" style="display: none; max-width: 120px; margin-top: 10px;" />
           </div>
-      </div>
-    </div>
+        </div>
         <div class="inputRow">
           <div class="inputBox">
             <label for="name">Nome:</label>
@@ -131,6 +131,7 @@
     });
   </script>
   <script type="module" src="app.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
   <script>
     const emailInput = document.getElementById('email');
   
@@ -145,6 +146,15 @@
         emailInput.value = '@cp.pt';
       }
     });
+
+    // Registrar Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => console.log('SW registered'))
+          .catch(error => console.log('SW registration failed'));
+      });
+    }
   </script>
 
 </body>
