@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disponibilidades das Viaturas</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .timeline {
+      margin: 20px;
+    }
+    .vehicle-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .vehicle-label {
+      width: 150px;
+      font-weight: bold;
+    }
+    .timeline-bar {
+      flex: 1;
+      height: 30px;
+      background-color: #e0e0e0;
+      position: relative;
+      border-radius: 5px;
+    }
+    .rental-block {
+      position: absolute;
+      height: 100%;
+      background-color: #4CAF50;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 12px;
+      cursor: pointer;
+    }
+    .rental-block:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>Disponibilidades das Viaturas</h1>
+
+  <div class="timeline" id="timeline">
+    <!-- Viaturas serão carregadas aqui -->
+  </div>
+
+  <button onclick="window.location.href='rental.html'">Nova Reserva</button>
+  <button onclick="window.location.href='Menu.html'">Menu</button>
+
+  <script type="module" src="timeline.js"></script>
+</body>
+</html>

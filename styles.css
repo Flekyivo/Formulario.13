@@ -1,6 +1,6 @@
 
 body {
-  background-color: rgb(87, 124, 90);
+  background-color: rgb(87, 114, 89);
   color: #ecdfdf;
   font-family: 'verdana', Times, serif;
   font-size: 19px;
@@ -10,7 +10,8 @@ body {
 }
 .inputRow {
   display: flex;
-  gap: 20px; /* Espaçamento entre os campos */
+  gap: 20
+  px; /* Espaçamento entre os campos */
   margin-bottom: 20px; /* Espaçamento abaixo da linha */
   
 }
